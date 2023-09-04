@@ -4,22 +4,21 @@
 
 using CsvHelper.Configuration.Attributes;
 
-namespace AlphaVantageCore
+namespace AlphaVantageCore;
+
+public abstract class AlphaVantageResponse
 {
-    public abstract class AlphaVantageResponse
-    {
-        protected AlphaVantageResponse() { }
+    protected AlphaVantageResponse() { }
 
-        [Name("open")]
-        public decimal Open { get; set; }
+    [Name("open")]
+    public decimal Open { get; set; }
 
-        [Name("high")]
-        public decimal High { get; set; }
+    [Name("high")]
+    public decimal High { get; set; }
 
-        [Name("low")]
-        public decimal Low { get; set; }
+    [Name("low")]
+    public decimal Low { get; set; }
 
-        [Name("volume")]
-        public decimal Volume { get; set; }
-    }
+    [Name("volume")]
+    public decimal Volume { get; set; }
 }

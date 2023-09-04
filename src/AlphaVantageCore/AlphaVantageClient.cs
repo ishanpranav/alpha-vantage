@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AlphaVantageCore;
 
-public class AlphaVantageClient : IDisposable
+public sealed class AlphaVantageClient : IDisposable
 {
     private const string FunctionParameter = "function";
 
@@ -35,8 +35,9 @@ public class AlphaVantageClient : IDisposable
 
     public Task<IReadOnlyList<AlphaVantageTimeSeriesResponse>> GetIntradayTimeSeriesAsync(AlphaVantageIntradayTimeSeriesRequest request)
     {
-        RestRequest restRequest = CreateRequest(request);
+        RestRequest restRequest = CreateRequest();
 
+        restRequest.AddObject(request);
         restRequest.AddQueryParameter(FunctionParameter, "TIME_SERIES_INTRADAY");
 
         return ExecuteRequestAsync<AlphaVantageTimeSeriesResponse>(restRequest);
@@ -44,8 +45,9 @@ public class AlphaVantageClient : IDisposable
 
     public Task<IReadOnlyList<AlphaVantageTimeSeriesResponse>> GetTimeSeriesAsync(AlphaVantageTimeSeries timeSeries, AlphaVantageTimeSeriesRequest request)
     {
-        RestRequest restRequest = CreateRequest(request);
+        RestRequest restRequest = CreateRequest();
 
+        restRequest.AddObject(request);
         restRequest.AddQueryParameter(FunctionParameter, timeSeries.ToString());
 
         return ExecuteRequestAsync<AlphaVantageTimeSeriesResponse>(restRequest);
@@ -53,8 +55,9 @@ public class AlphaVantageClient : IDisposable
 
     public async Task<AlphaVantageQuoteResponse> GetQuoteAsync(AlphaVantageRequest request)
     {
-        RestRequest restRequest = CreateRequest(request);
+        RestRequest restRequest = CreateRequest();
 
+        restRequest.AddObject(request);
         restRequest.AddQueryParameter(FunctionParameter, "GLOBAL_QUOTE");
 
         IReadOnlyList<AlphaVantageQuoteResponse> response = await ExecuteRequestAsync<AlphaVantageQuoteResponse>(restRequest);
@@ -62,12 +65,21 @@ public class AlphaVantageClient : IDisposable
         return response[0];
     }
 
-    private RestRequest CreateRequest<TRequest>(TRequest request) where TRequest : class
+    public Task<IReadOnlyList<AlphaVantageSearchResponse>> SearchAsync(string keywords)
+    {
+        RestRequest restRequest = CreateRequest();
+
+        restRequest.AddQueryParameter("keywords", keywords);
+        restRequest.AddQueryParameter(FunctionParameter, "SYMBOL_SEARCH");
+
+        return ExecuteRequestAsync<AlphaVantageSearchResponse>(restRequest);
+    }
+
+    private RestRequest CreateRequest()
     {
         RestRequest restRequest = new RestRequest("query");
 
         restRequest.AddHeader(KnownHeaders.Accept, "*/*");
-        restRequest.AddObject(request);
         restRequest.AddQueryParameter("apikey", _apiKey);
         restRequest.AddQueryParameter("datatype", "csv");
 

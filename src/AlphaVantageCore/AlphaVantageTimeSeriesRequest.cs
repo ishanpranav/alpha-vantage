@@ -4,11 +4,10 @@
 
 using RestSharp;
 
-namespace AlphaVantageCore
+namespace AlphaVantageCore;
+
+public sealed class AlphaVantageTimeSeriesRequest : AlphaVantageRequest
 {
-    public class AlphaVantageTimeSeriesRequest : AlphaVantageRequest
-    {
-        [RequestProperty(Name = "outputsize")]
-        public AlphaVantageOutputSize OutputSize { get; set; } = AlphaVantageOutputSize.Compact;
-    }
+    [RequestProperty(Name = "outputsize")]
+    public AlphaVantageOutputSize OutputSize { get; set; } = AlphaVantageOutputSize.Compact;
 }

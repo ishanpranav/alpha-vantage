@@ -5,20 +5,19 @@
 using System;
 using CsvHelper.Configuration.Attributes;
 
-namespace AlphaVantageCore
+namespace AlphaVantageCore;
+
+public sealed class AlphaVantageQuoteResponse : AlphaVantageResponse
 {
-    public class AlphaVantageQuoteResponse : AlphaVantageResponse
-    {
-        [Name("symbol")]
-        public string Symbol { get; set; }
+    [Name("symbol")]
+    public string Symbol { get; set; } = string.Empty;
 
-        [Name("latestDay")]
-        public DateTime LatestDay { get; set; }
+    [Name("latestDay")]
+    public DateTime LatestDay { get; set; }
 
-        [Name("previousClose")]
-        public decimal PreviousClose { get; set; }
+    [Name("previousClose")]
+    public decimal PreviousClose { get; set; }
 
-        [Name("change")]
-        public decimal Change { get; set; }
-    }
+    [Name("change")]
+    public decimal Change { get; set; }
 }

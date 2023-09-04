@@ -5,14 +5,13 @@
 using System;
 using CsvHelper.Configuration.Attributes;
 
-namespace AlphaVantageCore
-{
-    public class AlphaVantageTimeSeriesResponse : AlphaVantageResponse
-    {
-        [Name("timestamp")]
-        public DateTime Timestamp { get; set; }
+namespace AlphaVantageCore;
 
-        [Name("close")]
-        public decimal Close { get; set; }
-    }
+public sealed class AlphaVantageTimeSeriesResponse : AlphaVantageResponse
+{
+    [Name("timestamp")]
+    public DateTime Timestamp { get; set; }
+
+    [Name("close")]
+    public decimal Close { get; set; }
 }

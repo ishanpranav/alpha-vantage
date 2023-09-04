@@ -4,11 +4,10 @@
 
 using RestSharp;
 
-namespace AlphaVantageCore
+namespace AlphaVantageCore;
+
+public class AlphaVantageRequest
 {
-    public class AlphaVantageRequest
-    {
-        [RequestProperty(Name = "symbol")]
-        public string Symbol { get; set; }
-    }
+    [RequestProperty(Name = "symbol")]
+    public string Symbol { get; set; } = string.Empty;
 }

@@ -5,20 +5,19 @@
 using System;
 using RestSharp;
 
-namespace AlphaVantageCore
+namespace AlphaVantageCore;
+
+public sealed class AlphaVantageIntradayTimeSeriesRequest : AlphaVantageTimeSeriesRequest
 {
-    public class AlphaVantageIntradayTimeSeriesRequest : AlphaVantageTimeSeriesRequest
-    {
-        [RequestProperty(Name = "interval")]
-        public AlphaVantageInterval Interval { get; set; } = AlphaVantageInterval.Hour;
+    [RequestProperty(Name = "interval")]
+    public AlphaVantageInterval Interval { get; set; } = AlphaVantageInterval.Hour;
 
-        [RequestProperty(Name = "adjusted")]
-        public bool Adjusted { get; set; }
+    [RequestProperty(Name = "adjusted")]
+    public bool Adjusted { get; set; }
 
-        [RequestProperty(Name = "extended_hours")]
-        public bool ExtendedHours { get; set; }
+    [RequestProperty(Name = "extended_hours")]
+    public bool ExtendedHours { get; set; }
 
-        [RequestProperty(Name = "month", Format = "yyyy-MM")]
-        public DateTime Month { get; set; }
-    }
+    [RequestProperty(Name = "month", Format = "yyyy-MM")]
+    public DateTime Month { get; set; }
 }

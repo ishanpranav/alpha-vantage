@@ -9,8 +9,9 @@
 
 using System;
 
-namespace AlphaVantageCore
-{<#
+namespace AlphaVantageCore;
+
+<#
  foreach (string file in Directory.EnumerateFiles(Path.Combine(Path.GetDirectoryName(Host.TemplateFile), "strings"), "*.txt"))
  {
     string className = Path.GetFileNameWithoutExtension(file);
@@ -74,4 +75,4 @@ namespace AlphaVantageCore
 <#
    reader.Close();
   }
-#>}
+#>
