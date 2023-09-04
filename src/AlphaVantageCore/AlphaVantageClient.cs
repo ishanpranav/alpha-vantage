@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AlphaVantageCore;
 
-public sealed class AlphaVantageClient : IDisposable
+public class AlphaVantageClient : IDisposable
 {
     private const string FunctionParameter = "function";
 
@@ -53,11 +53,11 @@ public sealed class AlphaVantageClient : IDisposable
         return ExecuteRequestAsync<AlphaVantageTimeSeriesResponse>(restRequest);
     }
 
-    public async Task<AlphaVantageQuoteResponse> GetQuoteAsync(AlphaVantageRequest request)
+    public async Task<AlphaVantageQuoteResponse> GetQuoteAsync(string symbol)
     {
         RestRequest restRequest = CreateRequest();
 
-        restRequest.AddObject(request);
+        restRequest.AddQueryParameter("symbol", symbol);
         restRequest.AddQueryParameter(FunctionParameter, "GLOBAL_QUOTE");
 
         IReadOnlyList<AlphaVantageQuoteResponse> response = await ExecuteRequestAsync<AlphaVantageQuoteResponse>(restRequest);

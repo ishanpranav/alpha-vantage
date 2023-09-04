@@ -21,10 +21,7 @@ internal static class Program
 
         using AlphaVantageClient client = new AlphaVantageClient(apiKey);
 
-        var quote = await client.GetQuoteAsync(new AlphaVantageRequest()
-        {
-            Symbol = "AAPL"
-        });
+        var quote = await client.GetQuoteAsync("AAPL");
 
         Console.WriteLine(JsonSerializer.Serialize(quote, new JsonSerializerOptions()
         {

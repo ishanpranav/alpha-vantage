@@ -6,8 +6,11 @@ using RestSharp;
 
 namespace AlphaVantageCore;
 
-public sealed class AlphaVantageTimeSeriesRequest : AlphaVantageRequest
+public class AlphaVantageTimeSeriesRequest
 {
+    [RequestProperty(Name = "symbol")]
+    public string Symbol { get; set; } = string.Empty;
+
     [RequestProperty(Name = "outputsize")]
     public AlphaVantageOutputSize OutputSize { get; set; } = AlphaVantageOutputSize.Compact;
 }
