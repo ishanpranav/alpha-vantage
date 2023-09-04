@@ -1,0 +1,36 @@
+{
+  "licenses": {},
+  "dependencies": [
+    {
+      "title": ".NET Runtime",
+      "formats": [ "c#", "c++", "c" ],
+      "source": "https://github.com/dotnet/runtime",
+      "author": ".NET Foundation and contributors",
+      "copyright": ".NET Foundation and Contributors",
+      "license": "mit_dotnet",
+      "notices": "https://github.com/dotnet/runtime/blob/main/THIRD-PARTY-NOTICES.TXT",
+      "index": "Microsoft"
+    },
+    {
+      "title": "RestSharp",
+      "formats": [ "c#" ],
+      "source": "https://github.com/restsharp/RestSharp",
+      "author": " .NET Foundation and Contributors",
+      "copyright": ".NET Foundation and Contributors",
+      "license": "apache-2.0_dotnet",
+      "index": "Microsoft"
+    }
+  ],
+  "references": [],
+  "tools": [
+    {
+      "title": "VisualStudio.gitignore",
+      "formats": [ "ignore list" ],
+      "source": "https://github.com/github/gitignore",
+      "author": "GitHub, Inc.",
+      "resource": "https://github.com/github/gitignore/blob/main/VisualStudio.gitignore",
+      "license": "cc0-1.0",
+      "index": "GitHub, Inc., et al."
+    }
+  ]
+}

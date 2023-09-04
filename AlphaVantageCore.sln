@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34018.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlphaVantageCore", "src\AlphaVantageCore\AlphaVantageCore.csproj", "{811875CD-1F32-4FB0-8C6B-54BAD179C150}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlphaVantageCore.App", "src\AlphaVantageCore.App\AlphaVantageCore.App.csproj", "{E420E92C-DC27-478E-BDBB-61433E7EB62B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{811875CD-1F32-4FB0-8C6B-54BAD179C150}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{811875CD-1F32-4FB0-8C6B-54BAD179C150}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{811875CD-1F32-4FB0-8C6B-54BAD179C150}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{811875CD-1F32-4FB0-8C6B-54BAD179C150}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E420E92C-DC27-478E-BDBB-61433E7EB62B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E420E92C-DC27-478E-BDBB-61433E7EB62B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E420E92C-DC27-478E-BDBB-61433E7EB62B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E420E92C-DC27-478E-BDBB-61433E7EB62B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {05E089C3-D450-4EE7-9216-A866B9194B1E}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,9 @@
+﻿# AlphaVantageInterval.txt
+# Copyright (c) 2023 Ishan Pranav. All rights reserved.
+# Licensed under the MIT License.
+
+Minute = 1min
+FiveMinute = 5min
+FifteenMinute = 15min
+HalfHour = 30min
+Hour = 60min
