@@ -3,6 +3,9 @@
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
+    <Title>AlphaVantageCore</Title>
+    <Authors>Ishan Pranav</Authors>
+    <Copyright>Copyright (c) 2023 Ishan Pranav</Copyright>
   </PropertyGroup>
 
   <ItemGroup>

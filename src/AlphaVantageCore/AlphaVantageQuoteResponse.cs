@@ -2,8 +2,8 @@
 // Copyright (c) 2023 Ishan Pranav. All rights reserved.
 // Licensed under the MIT License.
 
-using System;
 using CsvHelper.Configuration.Attributes;
+using System;
 
 namespace AlphaVantageCore;
 
