@@ -37,7 +37,7 @@ public class AlphaVantageClient : IDisposable
         return new RestClientOptions("https://www.alphavantage.co");
     }
 
-    public Task<IReadOnlyList<AlphaVantageTimeSeriesResponse>> GetIntradayTimeSeriesAsync(AlphaVantageIntradayTimeSeriesRequest request)
+    public Task<IReadOnlyList<AlphaVantageTimeSeriesResponse>> GetTimeSeriesAsync(AlphaVantageIntradayTimeSeriesRequest request)
     {
         RestRequest restRequest = CreateRequest();
 
@@ -45,6 +45,16 @@ public class AlphaVantageClient : IDisposable
         restRequest.AddQueryParameter(FunctionParameter, "TIME_SERIES_INTRADAY");
 
         return ExecuteRequestAsync<AlphaVantageTimeSeriesResponse>(restRequest);
+    }
+
+    public Task<IReadOnlyList<AlphaVantageAdjustedTimeSeriesResponse>> GetTimeSeriesAsync(AlphaVantageAdjustedTimeSeries timeSeries, AlphaVantageTimeSeriesRequest request)
+    {
+        RestRequest restRequest = CreateRequest();
+
+        restRequest.AddObject(request);
+        restRequest.AddQueryParameter(FunctionParameter, timeSeries.ToString());
+
+        return ExecuteRequestAsync<AlphaVantageAdjustedTimeSeriesResponse>(restRequest);
     }
 
     public Task<IReadOnlyList<AlphaVantageTimeSeriesResponse>> GetTimeSeriesAsync(AlphaVantageTimeSeries timeSeries, AlphaVantageTimeSeriesRequest request)

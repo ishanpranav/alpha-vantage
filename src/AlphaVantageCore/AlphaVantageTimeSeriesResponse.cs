@@ -7,7 +7,7 @@ using System;
 
 namespace AlphaVantageCore;
 
-public sealed class AlphaVantageTimeSeriesResponse : AlphaVantageResponse
+public class AlphaVantageTimeSeriesResponse : AlphaVantageResponse
 {
     [Name("timestamp")]
     public DateTime Timestamp { get; set; }
