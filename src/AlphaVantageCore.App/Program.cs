@@ -3,6 +3,7 @@
 // Licensed under the MIT License.
 
 using System;
+using System.IO;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -21,11 +22,19 @@ internal static class Program
 
         using AlphaVantageClient client = new AlphaVantageClient(apiKey);
 
-        var result = await client.SearchAsync("Apple");
+        var response = await client.GetTimeSeriesAsync(
+            AlphaVantageAdjustedTimeSeries.Daily,
+            new AlphaVantageTimeSeriesRequest()
+            {
+                OutputSize = AlphaVantageOutputSize.Compact,
+                Symbol = "QQQ"
+            });
 
-        Console.WriteLine(JsonSerializer.Serialize(result, new JsonSerializerOptions()
+        using FileStream output = File.Create("qqq.json");
+
+        await JsonSerializer.SerializeAsync(output, response, new JsonSerializerOptions()
         {
             WriteIndented = true
-        }));
+        });
     }
 }

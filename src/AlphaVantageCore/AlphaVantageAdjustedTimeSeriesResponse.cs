@@ -8,9 +8,9 @@ namespace AlphaVantageCore;
 
 public sealed class AlphaVantageAdjustedTimeSeriesResponse : AlphaVantageTimeSeriesResponse
 {
-    [Name("adjusted close")]
+    [Name("adjusted_close")]
     public decimal AdjustedClose { get; set; }
 
-    [Name("dividend amount")]
+    [Name("dividend_amount")]
     public decimal Dividend { get; set; }
 }

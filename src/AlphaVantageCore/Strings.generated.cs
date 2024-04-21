@@ -7,7 +7,8 @@ using System;
 namespace AlphaVantageCore;
 
     public sealed class AlphaVantageAdjustedTimeSeries : IEquatable<AlphaVantageAdjustedTimeSeries>
-    {        public static readonly AlphaVantageAdjustedTimeSeries Weekly = new AlphaVantageAdjustedTimeSeries("TIME_SERIES_WEEKLY_ADJUSTED");
+    {        public static readonly AlphaVantageAdjustedTimeSeries Daily = new AlphaVantageAdjustedTimeSeries("TIME_SERIES_DAILY_ADJUSTED");
+                  public static readonly AlphaVantageAdjustedTimeSeries Weekly = new AlphaVantageAdjustedTimeSeries("TIME_SERIES_WEEKLY_ADJUSTED");
                   public static readonly AlphaVantageAdjustedTimeSeries Monthly = new AlphaVantageAdjustedTimeSeries("TIME_SERIES_MONTHLY_ADJUSTED");
                   private readonly string _value;
 
