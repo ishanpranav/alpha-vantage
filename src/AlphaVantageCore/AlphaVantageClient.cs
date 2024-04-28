@@ -101,6 +101,7 @@ public class AlphaVantageClient : IDisposable
     }
 
     private async Task<IReadOnlyList<TResponse>> ExecuteRequestAsync<TResponse>(RestRequest request)
+        where TResponse : IAlphaVantageResponse
     {
         if (_restClient == null)
         {
@@ -113,6 +114,13 @@ public class AlphaVantageClient : IDisposable
         if (result == null)
         {
             throw new Exception();
+        }
+
+        string? content = restResponse.Content;
+
+        foreach (TResponse response in result)
+        {
+            response.Content = content;
         }
 
         return result;

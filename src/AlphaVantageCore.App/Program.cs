@@ -4,6 +4,7 @@
 
 using System;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 
@@ -23,18 +24,13 @@ internal static class Program
         using AlphaVantageClient client = new AlphaVantageClient(apiKey);
 
         var response = await client.GetTimeSeriesAsync(
-            AlphaVantageAdjustedTimeSeries.Daily,
-            new AlphaVantageTimeSeriesRequest()
+            new AlphaVantageIntradayTimeSeriesRequest()
             {
-                OutputSize = AlphaVantageOutputSize.Compact,
-                Symbol = "QQQ"
+                OutputSize = AlphaVantageOutputSize.Full,
+                Symbol = "QQQ",
+                Interval = AlphaVantageInterval.Minute
             });
 
-        using FileStream output = File.Create("qqq.json");
-
-        await JsonSerializer.SerializeAsync(output, response, new JsonSerializerOptions()
-        {
-            WriteIndented = true
-        });
+        File.WriteAllText("qqq-time-series.json", response[0].Content);
     }
 }

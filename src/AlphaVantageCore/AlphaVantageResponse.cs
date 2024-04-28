@@ -3,10 +3,11 @@
 // Licensed under the MIT License.
 
 using CsvHelper.Configuration.Attributes;
+using System.Text.Json.Serialization;
 
 namespace AlphaVantageCore;
 
-public abstract class AlphaVantageResponse
+public abstract class AlphaVantageResponse : IAlphaVantageResponse
 {
     protected AlphaVantageResponse() { }
 
@@ -21,4 +22,8 @@ public abstract class AlphaVantageResponse
 
     [Name("volume")]
     public decimal Volume { get; set; }
+
+    [Ignore]
+    [JsonIgnore]
+    public string? Content { get; set; }
 }

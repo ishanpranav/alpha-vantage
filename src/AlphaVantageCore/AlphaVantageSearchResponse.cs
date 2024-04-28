@@ -3,10 +3,11 @@
 // Licensed under the MIT License.
 
 using CsvHelper.Configuration.Attributes;
+using System.Text.Json.Serialization;
 
 namespace AlphaVantageCore;
 
-public sealed class AlphaVantageSearchResponse
+public sealed class AlphaVantageSearchResponse : IAlphaVantageResponse
 {
     [Name("symbol")]
     public string Symbol { get; set; } = string.Empty;
@@ -25,4 +26,8 @@ public sealed class AlphaVantageSearchResponse
 
     [Name("matchScore")]
     public decimal MatchScore { get; set; }
+
+    [Ignore]
+    [JsonIgnore]
+    public string? Content { get; set; }
 }
